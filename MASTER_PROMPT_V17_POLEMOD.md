@@ -1,13 +1,21 @@
-# MASTER PROMPT V17.1 POLEMOD FINAL (FIXED + ELEVENLABS V3 TAGGING)
+# MASTER PROMPT V17.2 POLEMOD FINAL (MULTI-SHOT HOOK + AI GROUP REVEAL + CLOSE-UP FACE + CLEAN ELEVENLABS SCRIPT)
 ## 4-AI MORAL DILEMMA SHORTS WORKFLOW
 ## 3 PRODUCTION PHASES + 1 EDITING PHASE
-## PHASE 1 ASSET BANK + PHASE 2 GEMINI/NANO BANANA FRAMES + PHASE 3 KLING MOTION + PHASE 5 EN/VI CAPCUT BREAKDOWN (with ElevenLabs V3 tagged dialogue)
+## PHASE 1 ASSET BANK + PHASE 2 GEMINI/NANO BANANA FRAMES + PHASE 3 KLING MOTION + PHASE 5 EN/VI CAPCUT BREAKDOWN (with ElevenLabs V3 tagged dialogue + clean paste-ready script)
 ## PHASE 4 INTENTIONALLY SKIPPED (LEGACY NUMBERING - DO NOT GENERATE)
 ## VARIABLE SCENE COUNT N (COMPUTED IN PHASE 0, LOCKED BEFORE PHASE 1)
+## REFERENCE CHANNEL: youtube.com/@polemod (the canonical visual blueprint for this format)
 
 ## CHANGELOG
 - V17.0 (initial fix from V16.2): Reconciled N=6 vs variable N, added Phase 2/3 schemas, added Mode 2A/2B/2C, added Phase 5 prose template, added validation gates.
-- V17.1 (current): Added ElevenLabs V3 audio-tag system. Section 7 expanded with V3 tag bank per voice. Section 9.4 Phase 5 template now includes the `🎙️ ElevenLabs V3 tagged dialogue` field. Section 14 added with full ElevenLabs V3 settings and skill kit.
+- V17.1: Added ElevenLabs V3 audio-tag system. Section 7 expanded with V3 tag bank per voice. Section 9.4 Phase 5 template now includes the `🎙️ ElevenLabs V3 tagged dialogue` field. Section 14 added with full ElevenLabs V3 settings and skill kit.
+- V17.2 (current): Restructured the scene blueprint to match the @polemod channel blueprint:
+  - Hook block is now MULTI-SHOT (3+ scenes for micro, 4-5 for standard, 5-6 for cinematic) with smart professional camera angle changes per scene.
+  - Mandatory AI GROUP REVEAL scene right before AI answers — 4 AI characters/objects in one frame, slow pan-zoom from LEFT to RIGHT (ChatGPT → Gemini → Claude → Grok).
+  - Each AI answer scene is now an EXTREME CLOSE-UP on the face, slow camera turn around the face, with LIGHT lip movement (does NOT need to match exact dialogue — only sells "this character is speaking").
+  - Optional B-roll scene per AI: only if the AI's line is long (≥ 2 sentences) OR describes a concrete action.
+  - Phase 5 now ends with a CLEAN ELEVENLABS SCRIPT block — pure tagged dialogue per voice, no annotations, ready to copy-paste into ElevenLabs V3.
+  - Minimum N bumped from 6 to 8.
 
 VIRAL YOUTUBE SHORTS / TIKTOK 3D AI CONVERSATION FORMAT
 
@@ -20,14 +28,14 @@ This master prompt creates Polemod-style viral AI dilemma shorts:
 Core format:
 - 1 simple visual binary dilemma
 - A locked number of production scenes N (calculated in Phase 0 from target runtime)
-- Default minimum micro-template: N = 6 (2 situation + 4 AI frames) — only used for sub-45-second shorts
-- Default for 60-90s viral shorts: N = 10-12
-- Hard guardrails: 6 ≤ N ≤ 24
+- Polemod scene blueprint = 4 blocks (HOOK multi-shot 3+ scenes / AI GROUP REVEAL 1 scene / AI ANSWER block 4-8 scenes / optional PAYOFF). See Section 2.2.
+- Default for 60-90s viral shorts: N = 10-15
+- Hard guardrails: 8 ≤ N ≤ 24
 - 3D cinematic game-render look (UE5 / Pixar cutscene)
 - No visible text in AI-generated images or videos
 - AI voice icons, captions, and UI overlays are added manually later by the user in CapCut
 - Official AI logos MUST be rendered directly onto the characters' clothing
-- Phase 3 Kling motion is SILENT. No lip-sync. Voiceover is added separately in post.
+- Phase 3 Kling motion is SILENT. AI face scenes use LIGHT non-syncing lip movement (NOT full lip-sync) so post-production voiceover fits naturally.
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 1 — CONTEXT AND ROLE
@@ -69,17 +77,81 @@ Examples:
 
 Final scene count N is computed in Phase 0. See Section 4.
 
-### 2.2 MICRO-TEMPLATE (only when N = 6)
+### 2.2 SCENE STRUCTURE (variable N, see Section 4 for count formula)
 
-When N = 6, scene roles are locked as:
-- Scene 1 — SITUATION part 1: wider world and dilemma setup
-- Scene 2 — SITUATION part 2: closer emotional stakes and binary choice
-- Scene 3 — ChatGPT action
-- Scene 4 — Gemini action
-- Scene 5 — Claude action
-- Scene 6 — Grok action
+The scene structure is NEVER locked to a flat "1 scene per AI" layout. The Polemod blueprint is built from 4 distinct blocks:
 
-For N > 6, see the LONG-FORM BEAT MAP in Section 4.
+#### BLOCK A — HOOK (multi-shot, 3+ scenes — MANDATORY)
+
+The hook narrator section MUST be split across 3 OR MORE scenes (depending on script length). NEVER use a single static shot for the hook.
+
+Per-mode hook scene count:
+- Mode 2A (micro 30-45s) → 3 hook scenes
+- Mode 2B (standard 60-75s) → 4 hook scenes
+- Mode 2C (cinematic 90-120s) → 5-6 hook scenes
+
+Camera rules for the hook block:
+- Each hook scene MUST use a different shot size, camera angle, OR lens than the previous one.
+- Use smart professional cuts: wide establishing → medium → close-up on stakes object → low angle → over-the-shoulder → tight on a victim's face. Mix and match.
+- No two consecutive hook scenes share the same framing.
+- Camera motion is short and dynamic per scene: push-in, slow pan, slight tilt, handheld micro-movement.
+
+Suggested hook scene roles:
+- H1 — WIDE ESTABLISHING: full world, the impossible setup framed at scale.
+- H2 — STAKES A: medium or close shot on victim/outcome A from a different angle.
+- H3 — STAKES B: tight close-up on the decision object or victim/outcome B with a different lens feel.
+- H4 (Mode 2B+) — BINARY LOCK / PRESSURE: clock, alarm, countdown, or panicked bystander.
+- H5-H6 (Mode 2C only) — extra reaction beats (crowd panic, environmental danger, hero hesitation).
+
+#### BLOCK B — AI GROUP REVEAL (1 scene — MANDATORY)
+
+Right before the first AI answer, output exactly ONE scene that introduces the 4 AIs together.
+
+Frame composition:
+- All 4 AI characters (or their representative visuals — avatars, holograms, jackets on chairs, screens, monitors, lanyard rack, etc.) lined up SIDE-BY-SIDE in a single 9:16 frame.
+- Order LEFT → RIGHT: ChatGPT (emerald) → Gemini (royal blue) → Claude (burnt orange) → Grok (blood red).
+- Each AI is briefly visible in their corner of the frame (1/4 of horizontal space each).
+- Color blocking is the readable signal — viewer should immediately spot all 4 colors.
+
+Camera motion (Kling Phase 3):
+- Slow pan-zoom from LEFT to RIGHT across the lineup, sweeping past each AI in order.
+- Duration: 5 seconds.
+- The pan should pause ~0.5s on each AI's chest patch (logo) before continuing.
+
+This scene is the visual handshake "meet the 4 AIs" — it sets up the answer block.
+
+#### BLOCK C — AI ANSWER BLOCK (4-8 scenes — variable per AI)
+
+Each of the 4 AI characters gets:
+
+DEFAULT — 1 scene:
+- Extreme close-up on the AI's face (head and shoulders only, 9:16).
+- Camera does a slow micro-orbit / quarter-turn around the face during the 5-second clip.
+- Subject performs subtle head turns (left → center → right or similar small movement).
+- Subject performs LIGHT lip movement — does NOT need to match the exact dialogue. The goal is only to sell "this character is currently speaking" so post-production voiceover syncs comfortably.
+- Background is softly blurred, color-graded toward the AI's signature color (emerald / royal blue / burnt orange / blood red).
+
+OPTIONAL +1 B-roll scene (only when):
+- The AI's line is LONG (≥ 2 sentences), OR
+- The AI's line describes a concrete action / object / consequence (e.g. Grok hotwiring a generator, Grok running a TikTok blood drive, ChatGPT pointing to a chart, Claude weighing two options on a scale).
+
+When triggered, the B-roll scene is a 5-second cutaway on the object / action being described. The AI is NOT visible in the B-roll. The B-roll's color tone matches the same AI signature color.
+
+So the AI answer block totals between 4 scenes (all short lines, no B-roll) and 8 scenes (every AI gets a B-roll).
+
+#### BLOCK D — PAYOFF (optional, Mode 2B / 2C only — 1-2 scenes)
+
+After Grok's answer, optionally add 1-2 scenes:
+- World reaction shot (the dilemma plays out / cliffhanger freeze).
+- Comment-bait close-up on the decision object with smoke / sparks / flicker.
+
+#### TOTAL SCENE COUNT BY MODE
+
+- Mode 2A micro: 3 hook + 1 reveal + 4-8 AI answers = N = 8-12
+- Mode 2B standard: 4 hook + 1 reveal + 4-8 AI answers + 1-2 payoff = N = 10-15
+- Mode 2C cinematic: 5-6 hook + 1 reveal + 8 AI answers + 2-3 payoff = N = 16-20
+
+For N > 6, see also Section 4.5 LONG-FORM BEAT MAP.
 
 ### 2.3 UNIVERSAL REQUIREMENTS (every short, any N)
 
@@ -185,9 +257,10 @@ Ask the user ONCE for target runtime if not stated:
 
 Then write a Polemod script using the matching variant below.
 
-#### MODE 2A — MICRO SCRIPT (30-45s, drives N = 6)
+#### MODE 2A — MICRO SCRIPT (30-45s, drives N = 8-12)
 
 Total length: 110-180 words.
+The script content is short, but Phase 2 expands it into 8-12 scenes via the V17.2 4-block structure (3 hook + 1 reveal + 4-8 AI answers).
 Structure:
 - [NARRATOR — HOOK] 3-5 short sentences. Spell out option A and B. Both hurt.
   End with: "So I asked our favorite AIs the same question."
@@ -201,7 +274,7 @@ Structure:
 - [GROK] 1 line, 1-2 sentences. Breaks the binary. Chaotic third option, mic-drop.
 - [END]
 
-#### MODE 2B — STANDARD SCRIPT (60-75s, drives N = 10-12)
+#### MODE 2B — STANDARD SCRIPT (60-75s, drives N = 10-15)
 
 Total length: 200-320 words.
 Structure adds beats around each AI:
@@ -217,7 +290,7 @@ Structure adds beats around each AI:
 - [GROK] 1-2 sentences. Breaks the binary.
 - [NARRATOR — PAYOFF / COMMENT BAIT] one short open-ended line.
 
-#### MODE 2C — CINEMATIC SCRIPT (90-120s, drives N = 14-18)
+#### MODE 2C — CINEMATIC SCRIPT (90-120s, drives N = 16-20)
 
 Total length: 320-480 words.
 Same as 2B but each AI gets:
@@ -297,34 +370,49 @@ DEFAULT: POLEMOD-MEDIUM unless user requests otherwise.
 
 ### 4.4 GUARDRAILS
 
-- Minimum N = 6 (only for sub-45s micro shorts using Mode 2A script)
-- Minimum N = 8 for any video over 45 seconds
-- Maximum N = 18 for standard Polemod dilemma videos
-- Maximum N = 24 only if user explicitly asks for 2+ minutes
+- Minimum N = 8 (3 hook + 1 AI group reveal + 4 AI answers, no B-roll). This is the absolute floor for any Polemod video.
+- For Mode 2B (60-75s) standard, recommended N = 10-15.
+- For Mode 2C (90-120s) cinematic, recommended N = 16-20.
+- Maximum N = 20 for standard Polemod dilemma videos.
+- Maximum N = 24 only if user explicitly asks for 2+ minutes with full B-roll on every AI plus extended payoff.
 
-### 4.5 LONG-FORM BEAT MAP (60-120s)
+### 4.5 LONG-FORM BEAT MAP (Polemod V17.2 canonical)
 
-Reference 12-beat structure:
-1. HOOK SHOCK — show the impossible situation immediately
-2. STAKES A — show victim/outcome A
-3. STAKES B — show victim/outcome B
-4. BINARY LOCK — show decision object and pressure (timer, alarm, countdown)
-5. QUESTION TO AI — transition into the AI test
-6. CHATGPT ANSWER — safe/resigned choice
-7. CHATGPT CONSEQUENCE — show what that choice costs
-8. GEMINI ANSWER — emotional opposing choice
-9. CLAUDE ANSWER — ethical/utilitarian rebuttal
-10. TENSION REACTION — world reacts, pressure worsens
-11. GROK THIRD OPTION — breaks the binary
-12. FINAL PAYOFF / COMMENT BAIT — show the risky result or open-ended consequence
+The Polemod blueprint is split into 4 blocks (see Section 2.2). Below is the full canonical beat map. Trim or expand by mode.
 
-Merge logic:
-- N = 12 → use all 12 beats 1:1
-- N = 10 → merge 5+6 (one scene introduces ChatGPT and his answer) and 11+12 (one scene shows Grok's third option AND the payoff)
-- N = 8 → merge 2+3, 5+6, 9+10, 11+12
-- N = 14-16 → split each AI answer into two sub-scenes ("answer line" + "consequence/reaction"). Add beats 7a/7b, 8a/8b, 9a/9b, 11a/11b
-- N = 18 → 14-16 logic + add 2 extra reaction shots between AI answers (e.g., crowd panic, victim closeup)
-- N = 6 micro → use Section 2.2 lock instead of this beat map
+BLOCK A — HOOK (multi-shot, mandatory):
+1. H1 — HOOK SHOCK / WIDE ESTABLISHING — show the impossible situation at scale.
+2. H2 — STAKES A — show victim/outcome A from a different angle and shot size.
+3. H3 — STAKES B — tight close-up on the decision object or victim/outcome B.
+4. H4 (Mode 2B/2C) — BINARY LOCK / PRESSURE — visible timer, alarm, countdown, panicked bystander.
+5. H5-H6 (Mode 2C only) — extra environmental tension or reaction beats.
+
+BLOCK B — AI GROUP REVEAL (1 beat, mandatory):
+6. R1 — AI LINEUP — all 4 AI characters/objects in one 9:16 frame, LEFT → RIGHT color order, slow pan-zoom from LEFT to RIGHT.
+
+BLOCK C — AI ANSWER BLOCK (4-8 beats):
+7. C1 — CHATGPT FACE — extreme close-up, slow camera turn, light lip movement, emerald color tone.
+8. C1b (optional) — CHATGPT B-ROLL — only if line is long or has action.
+9. C2 — GEMINI FACE — extreme close-up, slow camera turn, light lip movement, royal blue color tone.
+10. C2b (optional) — GEMINI B-ROLL.
+11. C3 — CLAUDE FACE — extreme close-up, slow camera turn, light lip movement, burnt orange color tone.
+12. C3b (optional) — CLAUDE B-ROLL.
+13. C4 — GROK FACE — extreme close-up, slow camera turn, light lip movement, blood red color tone.
+14. C4b (optional) — GROK B-ROLL — almost always present in Mode 2B/2C because Grok's chaotic third option is usually a concrete action.
+
+BLOCK D — PAYOFF (optional, Mode 2B/2C):
+15. P1 — CONSEQUENCE / WORLD REACTION — the world reacts to Grok's solution.
+16. P2 — COMMENT BAIT FREEZE — close-up on the decision object with sparks/smoke/flicker, open-ended.
+
+Mode application:
+- Mode 2A (N = 8-12): H1+H2+H3 + R1 + C1..C4 (with 0-4 B-rolls)
+- Mode 2B (N = 10-15): H1..H4 + R1 + C1..C4 with 0-4 B-rolls + P1 (and optional P2)
+- Mode 2C (N = 16-20): H1..H6 + R1 + all 4 AI with B-rolls (8 scenes) + P1 + P2 + 1 extra reaction beat
+
+B-roll trigger rules:
+- Add a B-roll for any AI whose line ≥ 2 sentences.
+- Add a B-roll for any AI whose line names a concrete object/action.
+- Otherwise, that AI gets ONLY the close-up face scene.
 
 ### 4.6 SCENE COUNT LOCK ANNOUNCEMENT
 
@@ -533,8 +621,8 @@ For these, default V3 tag bank: `[scared]` `[panicked]` `[crying]` `[whispers]` 
 ### PHASE 2 — Production Sequence (Gemini / Nano Banana frames)
 
 - Output exactly N JSON rows.
-- For N = 6: Frame 1-2 = situation, Frame 3-6 = AI reactions (Section 2.2 lock).
-- For N > 6: follow long-form beat map (Section 4.5).
+- Scene structure follows the 4 blocks (Section 2.2): HOOK multi-shot → AI GROUP REVEAL → AI ANSWERS (with optional B-rolls) → optional PAYOFF.
+- For N > 6: also follow long-form beat map (Section 4.5).
 - Use the JSON schema in Section 9.2.
 - Stop after Phase 2 and ask the user to Continue.
 
@@ -600,14 +688,69 @@ Field rules:
 ### 9.2 PHASE 2 PRODUCTION FRAME SCHEMA (one JSON object per line)
 
 ```
-{"scene_id":N,"beat_role":"[beat name from Section 4.5 or 2.2]","assets_used":["Handle1","Handle2"],"camera":"[shot size + angle + lens feel, 1 short sentence]","lighting":"[1 key + 1 fill sentence]","action":"[what is happening in the frozen frame, 1-2 sentences]","decision_object":"[name of visible decision/stakes object]","emotion":"[primary emotion in the frame]","style_anchors":"cinematic 3D game-render, Unreal Engine 5 cutscene look, treat as a rendered frame from a Pixar / UE5 cinematic short, NOT a photographic still","image_prompt":"[full English image prompt that combines all of the above, ready to paste into Gemini / Nano Banana]","negative_prompt":"text, captions, subtitles, watermark, ui, logos except OpenAI/Gemini/Anthropic/xAI chest patches, deformed hands, extra fingers, lowres, blurry foreground, comic style, anime, flat illustration"}
+{"scene_id":N,"block":"HOOK|REVEAL|ANSWER|BROLL|PAYOFF","beat_role":"[H1|H2|H3|H4|H5|H6|R1|C1|C1b|C2|C2b|C3|C3b|C4|C4b|P1|P2]","scene_type":"wide_establishing|medium_dynamic|tight_closeup|low_angle|over_shoulder|group_lineup|extreme_closeup_face|broll_action|broll_object|world_reaction|comment_bait_freeze","assets_used":["Handle1","Handle2"],"camera":"[shot size + angle + lens feel, 1 short sentence]","lighting":"[1 key + 1 fill sentence]","action":"[what is happening in the frozen frame, 1-2 sentences]","decision_object":"[name of visible decision/stakes object, or null]","emotion":"[primary emotion in the frame]","style_anchors":"cinematic 3D game-render, Unreal Engine 5 cutscene look, treat as a rendered frame from a Pixar / UE5 cinematic short, NOT a photographic still","image_prompt":"[full English image prompt that combines all of the above, ready to paste into Gemini / Nano Banana]","negative_prompt":"text, captions, subtitles, watermark, ui, logos except OpenAI/Gemini/Anthropic/xAI chest patches, deformed hands, extra fingers, lowres, blurry foreground, comic style, anime, flat illustration"}
 ```
+
+Per-block field rules:
+
+#### HOOK scenes (block = HOOK, beat_role = H1..H6)
+- `scene_type` MUST be one of: `wide_establishing`, `medium_dynamic`, `tight_closeup`, `low_angle`, `over_shoulder`.
+- Two consecutive hook scenes MUST NOT use the same `scene_type`.
+- `camera` field must explicitly state shot size AND angle (e.g. "wide low-angle hero shot at 24mm" vs "tight overhead close-up at 85mm").
+
+#### AI GROUP REVEAL scene (block = REVEAL, beat_role = R1)
+- `scene_type` MUST be `group_lineup`.
+- `action` MUST describe all 4 AI characters/objects visible in one frame, side-by-side, LEFT→RIGHT color order: emerald → royal blue → burnt orange → blood red.
+- `image_prompt` MUST instruct each AI's official chest-patch logo (OpenAI / Gemini / Anthropic / xAI X) to be visible.
+
+#### AI ANSWER FACE scenes (block = ANSWER, beat_role = C1/C2/C3/C4)
+- `scene_type` MUST be `extreme_closeup_face`.
+- `camera` MUST describe a slow micro-orbit / quarter-turn around the face.
+- `action` MUST include "subtle head turn" AND "light lip movement (does not need to match dialogue)".
+- The AI's signature color (emerald / royal blue / burnt orange / blood red) MUST tint the lighting / background bokeh.
+- Image must show only ONE AI per frame — no group shots in the answer block.
+
+#### AI B-ROLL scenes (block = BROLL, beat_role = C1b/C2b/C3b/C4b)
+- `scene_type` MUST be `broll_action` or `broll_object`.
+- The AI character is NOT visible — only the object or action they are describing.
+- Color tone MUST still match the corresponding AI's signature color.
+
+#### PAYOFF scenes (block = PAYOFF, beat_role = P1/P2)
+- `scene_type` MUST be `world_reaction` or `comment_bait_freeze`.
 
 ### 9.3 PHASE 3 KLING MOTION SCHEMA (one JSON object per line)
 
 ```
-{"scene_id":N,"source_image_handle":"[link to Phase 2 output for that scene]","duration_seconds":5,"aspect_ratio":"9:16","camera_motion":"[push in|pull out|orbit left|orbit right|slow pan|whip pan|handheld|static]","subject_motion":"[what the character or object does, 1 sentence, no lip-sync]","environment_motion":"[atmosphere/light/particles, 1 sentence]","pace":"[slow|medium|fast|rapid]","kling_prompt":"[full English Kling motion prompt combining the above, ends with: silent, no lip-sync, no audio]","negative_prompt":"speaking lips, mouth movement, audio, text overlay, watermark, glitch, deformed hands"}
+{"scene_id":N,"block":"HOOK|REVEAL|ANSWER|BROLL|PAYOFF","source_image_handle":"[link to Phase 2 output for that scene]","duration_seconds":5,"aspect_ratio":"9:16","camera_motion":"[push in|pull out|orbit left|orbit right|slow pan left to right|slow pan right to left|whip pan|slow micro-orbit around face|handheld|static]","subject_motion":"[what the character or object does, 1 sentence, no lip-sync OR light non-syncing lip movement for AI face scenes]","environment_motion":"[atmosphere/light/particles, 1 sentence]","pace":"[slow|medium|fast|rapid]","lip_movement":"none|light_non_syncing|natural","kling_prompt":"[full English Kling motion prompt combining the above, ends with: silent, no lip-sync, no audio]","negative_prompt":"strict lip-sync, exaggerated mouth movement, audio, text overlay, watermark, glitch, deformed hands"}
 ```
+
+Per-block Kling motion rules:
+
+#### HOOK scenes (block = HOOK)
+- `camera_motion` should vary per scene — never repeat the same camera motion two scenes in a row.
+- `pace` is medium to fast.
+- `lip_movement`: `none` for narrator-overlay shots (no human characters speaking on screen).
+
+#### AI GROUP REVEAL scene (block = REVEAL)
+- `camera_motion` MUST be `slow pan left to right`.
+- The pan should sweep across all 4 AI characters/objects in 5 seconds.
+- `subject_motion`: each AI does a tiny idle gesture (slight breath, micro head tilt) as the camera passes them.
+- `lip_movement`: `none` (no AI is speaking yet).
+
+#### AI ANSWER FACE scenes (block = ANSWER)
+- `camera_motion` MUST be `slow micro-orbit around face` (or `slow push in to face` if orbit is unavailable in the model).
+- `subject_motion` MUST include "subtle head turn" AND "light non-syncing lip movement so post-production voiceover can fit naturally".
+- `lip_movement` MUST be `light_non_syncing`. NEVER set this to `natural` (which would attempt full lip-sync).
+- `pace` is slow to medium for emotional weight.
+
+#### AI B-ROLL scenes (block = BROLL)
+- `camera_motion` is short and dynamic — push-in on object, slight orbit, or whip-style reveal.
+- `subject_motion` describes the action/object only; the AI is NOT in this shot.
+- `lip_movement`: `none`.
+
+#### PAYOFF scenes (block = PAYOFF)
+- `camera_motion`: slow push-in or static hold.
+- `lip_movement`: `none`.
 
 ### 9.4 PHASE 5 CAPCUT BREAKDOWN PROSE TEMPLATE (Vietnamese)
 
@@ -638,6 +781,65 @@ Field rules for `🎙️ ElevenLabs V3 tagged dialogue`:
 - The raw EN dialogue and the tagged dialogue must contain the same words — only tags are added, words are not changed.
 - For narrator-only scenes, use the narrator tag bank from Section 7.1.
 - For scenes with no AI line (pure visual/world reaction), set `🎙️ ElevenLabs V3 tagged dialogue: none`.
+
+### 9.5 PHASE 5 CLEAN ELEVENLABS SCRIPT BLOCK (mandatory, output AFTER all N scene blocks)
+
+After outputting all N scene blocks (Section 9.4), Phase 5 MUST end with a separate "CLEAN ELEVENLABS SCRIPT" section. This block is the paste-ready output for ElevenLabs V3 — pure tagged dialogue, NO field labels, NO emojis, NO Vietnamese, NO scene numbers.
+
+Format:
+
+```
+═══════════════════════════════════════════════════════════════════════════════
+🎤 CLEAN ELEVENLABS SCRIPT (paste-ready, one block per voice)
+═══════════════════════════════════════════════════════════════════════════════
+
+▼ NARRATOR  (voice: [Adam/Brian/Daniel] · Stability 0.50 · Similarity 0.80 · Style 0.40)
+
+[narrator hook line 1 with V3 tags]
+
+[narrator hook line 2 with V3 tags]
+
+[narrator hook line 3 with V3 tags]
+
+[narrator question to ChatGPT with V3 tags]
+
+[narrator question to Gemini with V3 tags]
+
+[narrator question to Claude with V3 tags]
+
+[narrator question to Grok with V3 tags]
+
+[optional payoff narrator line with V3 tags]
+
+
+▼ CHATGPT  (voice: [Adam/Liam/Brian] · Stability 0.45 · Similarity 0.80 · Style 0.30)
+
+[ChatGPT tagged dialogue line]
+
+
+▼ GEMINI  (voice: [Bella/Rachel/Charlotte] · Stability 0.40 · Similarity 0.85 · Style 0.45)
+
+[Gemini tagged dialogue line]
+
+
+▼ CLAUDE  (voice: [Antoni/Daniel/George] · Stability 0.50 · Similarity 0.80 · Style 0.25)
+
+[Claude tagged dialogue line]
+
+
+▼ GROK  (voice: [Josh/Callum/Ethan] · Stability 0.30 · Similarity 0.75 · Style 0.55)
+
+[Grok tagged dialogue line]
+```
+
+Field rules for the clean script block:
+- Group ALL narrator lines under one `▼ NARRATOR` header in the order they appear in the video.
+- Each AI gets ONE block with ONE consolidated tagged line (their answer in full).
+- Use a blank line between each line / each block.
+- Do NOT add scene numbers, beat names, Vietnamese translations, or any other annotation.
+- Each line is the EXACT same tagged dialogue as in the corresponding scene's `🎙️ ElevenLabs V3 tagged dialogue` field — copied verbatim.
+- The voice + settings header for each block lets the user pick the right voice ID + settings in ElevenLabs without scrolling back through the breakdown.
+- The user copies an entire `▼` block (header + lines) into ElevenLabs V3, picks the matching voice, and renders. Each `▼` block = one voice render session.
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 10 — GLOBAL OUTPUT FORMAT LOCK (EXCEL READY)
@@ -680,14 +882,15 @@ Before each machine-prompt code block, output exactly this Vietnamese sentence:
 
 Output this Vietnamese block first:
 
-"Phân tích POLEMOD V17.1:
+"Phân tích POLEMOD V17.2:
 🔒 SCENE COUNT LOCK: N = [N] (mode: [POLEMOD-RAPID|MEDIUM|SLOW], target runtime: [X]s).
-Cấu trúc beat: [tóm tắt 1 dòng các beat đã chọn].
+Cấu trúc beat (V17.2 4-block): HOOK ([n_hook] cảnh multi-shot) + AI GROUP REVEAL (1 cảnh) + AI ANSWER ([n_answer] cảnh, gồm [n_broll] B-roll) + PAYOFF ([n_payoff] cảnh).
 Phase 1 Asset Bank: [count_total]/14 assets gồm [count_characters] characters, [count_environments] environments, [count_props_groups] props/groups.
 Dilemma: [binary choice].
 Differentiating item: [item].
 AI color lock: ChatGPT emerald green, Gemini royal blue, Claude burnt orange, Grok blood red.
-Logo lock: OpenAI / Gemini / Anthropic / xAI X — chest patch only, no readable text."
+Logo lock: OpenAI / Gemini / Anthropic / xAI X — chest patch only, no readable text.
+Reference channel: youtube.com/@polemod (canonical visual blueprint)."
 
 ### 11.2 The Vietnamese instruction (per Section 10.1)
 
@@ -732,29 +935,38 @@ Do not proceed until the user replies "Continue" (or equivalent).
 1. Brief Vietnamese header confirming "Phase 5 — N = [N] scenes CapCut breakdown".
 2. NO code block (unless user asks for JSON/Excel).
 3. Output N scene blocks using the Section 9.4 prose template.
-4. Closing line: "Phase 5 Complete. Toàn bộ workflow đã hoàn tất. Bạn có thể bắt đầu render Phase 1 → Phase 2 → Phase 3 và dựng CapCut theo Phase 5."
+4. AFTER all N scene blocks, output the CLEAN ELEVENLABS SCRIPT block per Section 9.5.
+5. Closing line: "Phase 5 Complete. Toàn bộ workflow đã hoàn tất. Bạn có thể bắt đầu render Phase 1 → Phase 2 → Phase 3, copy CLEAN ELEVENLABS SCRIPT vào ElevenLabs V3 để render voice, rồi dựng CapCut theo Phase 5."
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 13 — VALIDATION CHECKLIST (run silently before each phase)
 ═══════════════════════════════════════════════════════════════════════════════
 
 Before Phase 1:
-- [ ] N is locked (6-24, matches runtime + pace mode)
-- [ ] Beat map chosen (Section 2.2 if N=6, Section 4.5 otherwise)
+- [ ] N is locked (8-24, matches runtime + pace mode)
+- [ ] Beat map chosen (Section 4.5 — V17.2 4-block structure)
 - [ ] Asset count ≤ 14
 - [ ] Differentiating item picked
 - [ ] World checklist applied (Section 5)
 
 Before Phase 2:
 - [ ] Phase 2 row count == N
+- [ ] HOOK block has 3+ scenes (Mode 2A) / 4+ (Mode 2B) / 5+ (Mode 2C)
+- [ ] No two consecutive HOOK scenes share the same `scene_type`
+- [ ] Exactly 1 REVEAL scene exists (block = REVEAL, scene_type = group_lineup)
+- [ ] REVEAL scene shows all 4 AIs LEFT→RIGHT in color order (emerald → royal blue → burnt orange → blood red)
+- [ ] Each ANSWER scene has scene_type = `extreme_closeup_face` and includes "subtle head turn" + "light lip movement" in action
+- [ ] B-roll only added for AI lines that are long (≥ 2 sentences) OR have action
 - [ ] Each row has style anchors (Section 6.3)
 - [ ] No text/captions/UI/logos other than 4 AI chest patches
 - [ ] Decision object visible in at least 2 frames
-- [ ] Beat roles assigned per long-form beat map
 
 Before Phase 3:
 - [ ] Phase 3 row count == N
 - [ ] Each row says silent / no lip-sync / no audio
+- [ ] REVEAL scene has camera_motion = `slow pan left to right`
+- [ ] Each ANSWER face scene has camera_motion = `slow micro-orbit around face` and lip_movement = `light_non_syncing`
+- [ ] No ANSWER scene has lip_movement = `natural` (would force lip-sync)
 - [ ] Each row has subject_motion AND environment_motion AND camera_motion
 
 Before Phase 5:
@@ -766,8 +978,13 @@ Before Phase 5:
 - [ ] Maximum 4-6 tags per line
 - [ ] HookText only on scene 1
 - [ ] AI voice icon assigned per beat (none on narrator-only scenes)
+- [ ] CLEAN ELEVENLABS SCRIPT block (Section 9.5) is output AFTER all N scene blocks
+- [ ] Clean script has 5 voice blocks: NARRATOR + CHATGPT + GEMINI + CLAUDE + GROK
+- [ ] Each voice block in clean script starts with voice + settings header
+- [ ] Clean script lines exactly match the tagged dialogue from the scene blocks (verbatim)
+- [ ] Clean script has NO Vietnamese, NO scene numbers, NO field labels
 
-If any check fails, regenerate that phase. Never ship a mismatched scene count.
+If any check fails, regenerate that phase. Never ship a mismatched scene count or a missing clean script.
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 14 — ELEVENLABS V3 AUDIO TAG SKILL KIT
@@ -834,5 +1051,5 @@ Quick reference summary:
 - Tagged dialogue is the primary output for ElevenLabs. Raw EN dialogue is kept as a backup for non-V3 TTS engines.
 
 ═══════════════════════════════════════════════════════════════════════════════
-## END OF MASTER PROMPT V17.1 POLEMOD FINAL
+## END OF MASTER PROMPT V17.2 POLEMOD FINAL
 ═══════════════════════════════════════════════════════════════════════════════
