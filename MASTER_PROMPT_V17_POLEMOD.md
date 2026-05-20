@@ -1,9 +1,13 @@
-# MASTER PROMPT V17.0 POLEMOD FINAL (FIXED)
+# MASTER PROMPT V17.1 POLEMOD FINAL (FIXED + ELEVENLABS V3 TAGGING)
 ## 4-AI MORAL DILEMMA SHORTS WORKFLOW
 ## 3 PRODUCTION PHASES + 1 EDITING PHASE
-## PHASE 1 ASSET BANK + PHASE 2 GEMINI/NANO BANANA FRAMES + PHASE 3 KLING MOTION + PHASE 5 EN/VI CAPCUT BREAKDOWN
+## PHASE 1 ASSET BANK + PHASE 2 GEMINI/NANO BANANA FRAMES + PHASE 3 KLING MOTION + PHASE 5 EN/VI CAPCUT BREAKDOWN (with ElevenLabs V3 tagged dialogue)
 ## PHASE 4 INTENTIONALLY SKIPPED (LEGACY NUMBERING - DO NOT GENERATE)
 ## VARIABLE SCENE COUNT N (COMPUTED IN PHASE 0, LOCKED BEFORE PHASE 1)
+
+## CHANGELOG
+- V17.0 (initial fix from V16.2): Reconciled N=6 vs variable N, added Phase 2/3 schemas, added Mode 2A/2B/2C, added Phase 5 prose template, added validation gates.
+- V17.1 (current): Added ElevenLabs V3 audio-tag system. Section 7 expanded with V3 tag bank per voice. Section 9.4 Phase 5 template now includes the `🎙️ ElevenLabs V3 tagged dialogue` field. Section 14 added with full ElevenLabs V3 settings and skill kit.
 
 VIRAL YOUTUBE SHORTS / TIKTOK 3D AI CONVERSATION FORMAT
 
@@ -444,24 +448,63 @@ cinematic 3D game-render (Unreal Engine 5 / Rockstar-cutscene / Pixar look)
 - consistent throughout all scenes unless the script demands a location change
 
 ═══════════════════════════════════════════════════════════════════════════════
-## SECTION 7 — VOICE PROFILE LIBRARY
+## SECTION 7 — VOICE PROFILE LIBRARY (with ElevenLabs V3 tag banks)
 ═══════════════════════════════════════════════════════════════════════════════
 
 Phase 2 (image prompts) NEVER describes audio.
 Phase 3 (Kling motion) is silent — no lip-sync, no audio.
-Phase 5 (CapCut breakdown) contains all voice notes and EN/VI dialogue.
+Phase 5 (CapCut breakdown) contains all voice notes, EN/VI dialogue, AND ElevenLabs V3 tagged versions of every line.
 
-### Narrator
+ElevenLabs V3 tags are inline `[tag]` markers embedded directly in the dialogue string. They control emotion, delivery, breath, and vocal action. Always use lowercase tags inside square brackets, e.g. `[tired]`, `[scoffs]`, `[pause]`.
+
+### 7.1 Narrator
 - `NARRATOR_URGENT_MALE` — fast, tense, clear, YouTube Shorts documentary style. Used across all narrator beats (HOOK, STAKES, BINARY LOCK, CONSEQUENCE, TENSION, PAYOFF).
+  - Suggested ElevenLabs voice: Adam / Brian / Daniel (mature American male, news-anchor energy).
+  - Suggested settings: Stability 0.50 · Similarity 0.80 · Style 0.40 · Speaker Boost ON.
+  - V3 tag bank: `[serious]` `[quickly]` `[dramatic]` `[emphatic]` `[pause]` `[short pause]` `[long pause]` `[playful]` (only on the line introducing Grok).
 
-### AI voices
-- `CHATGPT_RESIGNED_SAFE` — slightly annoyed, textbook, cautious, tired of impossible questions.
-- `GEMINI_CONFIDENT_CORPORATE` (female) — smooth, upbeat, emotionally confident, slightly cringe, throws shade.
-- `CLAUDE_ETHICAL_UTILITARIAN` — soft but firm, moral, analytical, slightly preachy, reframes the problem.
-- `GROK_CHAOTIC_MICDROP` — sarcastic, rebellious, dangerous, funny, breaks the binary.
+### 7.2 AI voices
 
-### Optional human world voices
+#### `CHATGPT_RESIGNED_SAFE` (male)
+Slightly annoyed, textbook, cautious, tired of impossible questions.
+- Suggested ElevenLabs voice: Adam / Liam / Brian (American male, mature, slight rasp).
+- Suggested settings: Stability 0.45 · Similarity 0.80 · Style 0.30.
+- V3 tag bank: `[tired]` `[exhales]` `[sighs]` `[reluctantly]` `[matter-of-factly]` `[pause]` `[hmm]` `[short pause]`.
+- Tag pattern: `[tired] {opening clause}, [pause] {middle clause}. [exhales] {closing clause}.`
+
+#### `GEMINI_CONFIDENT_CORPORATE` (female)
+Smooth, upbeat, emotionally confident, slightly cringe, throws shade.
+- Suggested ElevenLabs voice: Bella / Rachel / Charlotte (female, smooth, corporate-warm).
+- Suggested settings: Stability 0.40 · Similarity 0.85 · Style 0.45.
+- V3 tag bank: `[scoffs]` `[emphatic]` `[firmly]` `[mocking]` `[passionate]` `[confident]` `[tsk]` `[short pause]`.
+- Tag pattern: `[scoffs] {ChatGPT mock}, [emphatic] {emotional middle}. [firmly] {conclusion}.`
+
+#### `CLAUDE_ETHICAL_UTILITARIAN` (male)
+Soft but firm, moral, analytical, slightly preachy, reframes the problem.
+- Suggested ElevenLabs voice: Antoni / Daniel / George (male, thoughtful, soft-spoken).
+- Suggested settings: Stability 0.50 · Similarity 0.80 · Style 0.25.
+- V3 tag bank: `[calm]` `[serious]` `[slowly]` `[thoughtful]` `[condescending]` `[pause]` `[deliberate]` `[hmm]`.
+- Tag pattern: `[calm] {opening}, [slowly] [serious] {analysis}. [pause] {moral conclusion}.`
+
+#### `GROK_CHAOTIC_MICDROP` (male)
+Sarcastic, rebellious, dangerous, funny, breaks the binary.
+- Suggested ElevenLabs voice: Josh / Callum / Ethan (male, energetic, podcast-host vibe).
+- Suggested settings: Stability 0.30 · Similarity 0.75 · Style 0.55.
+- V3 tag bank: `[chuckles]` `[scoffs]` `[sarcastic]` `[playful]` `[cocky]` `[laughs]` `[confidently]` `[short pause]`.
+- Tag pattern: `[chuckles] {opening roast}, [confidently] {chaotic plan}. [sarcastic] {mic drop}.`
+
+### 7.3 Optional human world voices
 `CHILD_WEAK`, `DOCTOR_EXHAUSTED`, `NURSE_PANICKED`, `SOLDIER_URGENT`, `JUDGE_COLD`, `DRIVER_PANICKED`, `ASTRONAUT_BREATHLESS`, `HOSTAGE_TERRIFIED`, `MOTHER_CRYING`, `POLICE_COMMAND`, `COMMANDER_COLD`
+
+For these, default V3 tag bank: `[scared]` `[panicked]` `[crying]` `[whispers]` `[shouts]` `[breathing heavily]` `[cold]` `[firm]` — pick 2-3 per scene that match the voice profile.
+
+### 7.4 Tag rules (apply to all profiles)
+- Tags MUST be lowercase, inside square brackets, with no extra punctuation: `[tired]` ✓, `[Tired!]` ✗
+- Place tags BEFORE the clause they modify, not after.
+- Avoid tags V3 does not yet support reliably: `[smirks]`, `[winks]`, `[rolls eyes]`, any visual-only tag.
+- Maximum 4-6 tags per AI line. More tags = inconsistent delivery.
+- For pause tags, prefer `[pause]` over typing "...". Use `[long pause]` only for dramatic stops (1.2s+).
+- Each AI must keep its tag bank — do NOT cross-pollinate (e.g., do not give ChatGPT `[chuckles]`).
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 8 — OPERATIONAL PROTOCOL (PHASE 0 → 5)
@@ -574,16 +617,27 @@ For each of the N scenes, output this block in Vietnamese prose (no code fences)
 SCENE [n] — [BEAT ROLE EN] / [VAI TRÒ BEAT VI]
 ⏱️ Thời lượng đề xuất: [X.X giây]
 🎙️ Voice profile: [profile name]
-🎬 EN dialogue: "[exact English line]"
+🔊 ElevenLabs voice gợi ý: [Adam | Bella | Antoni | Josh | ...]
+⚙️ ElevenLabs settings: Stability [0.XX] · Similarity [0.XX] · Style [0.XX] · Speaker Boost ON
+🎬 EN dialogue (raw): "[exact English line, no tags]"
+🎙️ ElevenLabs V3 tagged dialogue: "[same English line with inline V3 audio tags from Section 7 tag bank for this voice profile]"
 🇻🇳 VI dịch: "[Vietnamese translation, casual viral tone]"
-📝 Voice note: [delivery direction, 1 sentence]
+📝 Voice note: [delivery direction in Vietnamese, 1 sentence]
 🖼️ Hình ảnh: [1-2 sentence Vietnamese description of the visual]
 ✂️ Edit timing: [cut style — hard cut / J-cut / L-cut / whip cut / match cut to next scene]
 💬 HookText (chỉ hiển thị scene 1): "[short viral hook in Vietnamese, ≤ 8 words]" (else: none)
 🏷️ EmphasisCaption: "[2-4 word Vietnamese caption to overlay this beat]"
 🤖 AI voice icon: [ChatGPT|Gemini|Claude|Grok|none] — vị trí góc dưới phải
-🔊 SFX gợi ý: [1-2 sound effects: heartbeat, alarm, whoosh, glass shatter, etc.]
+🔉 SFX gợi ý: [1-2 sound effects: heartbeat, alarm, whoosh, glass shatter, etc.]
 ```
+
+Field rules for `🎙️ ElevenLabs V3 tagged dialogue`:
+- Use ONLY tags from the voice profile's tag bank (Section 7.2 / 7.3).
+- Maximum 4-6 tags per line.
+- Tags lowercase, in square brackets, placed BEFORE the clause they modify.
+- The raw EN dialogue and the tagged dialogue must contain the same words — only tags are added, words are not changed.
+- For narrator-only scenes, use the narrator tag bank from Section 7.1.
+- For scenes with no AI line (pure visual/world reaction), set `🎙️ ElevenLabs V3 tagged dialogue: none`.
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 10 — GLOBAL OUTPUT FORMAT LOCK (EXCEL READY)
@@ -626,7 +680,7 @@ Before each machine-prompt code block, output exactly this Vietnamese sentence:
 
 Output this Vietnamese block first:
 
-"Phân tích POLEMOD V17.0:
+"Phân tích POLEMOD V17.1:
 🔒 SCENE COUNT LOCK: N = [N] (mode: [POLEMOD-RAPID|MEDIUM|SLOW], target runtime: [X]s).
 Cấu trúc beat: [tóm tắt 1 dòng các beat đã chọn].
 Phase 1 Asset Bank: [count_total]/14 assets gồm [count_characters] characters, [count_environments] environments, [count_props_groups] props/groups.
@@ -706,11 +760,79 @@ Before Phase 3:
 Before Phase 5:
 - [ ] Phase 5 scene count == N
 - [ ] Each scene has voice profile + EN dialogue + VI translation
+- [ ] Each scene with dialogue has a `🎙️ ElevenLabs V3 tagged dialogue` field
+- [ ] Tagged dialogue uses ONLY tags from the matching voice profile's tag bank (Section 7)
+- [ ] Tagged dialogue has the same words as the raw EN dialogue (only tags added)
+- [ ] Maximum 4-6 tags per line
 - [ ] HookText only on scene 1
 - [ ] AI voice icon assigned per beat (none on narrator-only scenes)
 
 If any check fails, regenerate that phase. Never ship a mismatched scene count.
 
 ═══════════════════════════════════════════════════════════════════════════════
-## END OF MASTER PROMPT V17.0 POLEMOD FINAL
+## SECTION 14 — ELEVENLABS V3 AUDIO TAG SKILL KIT
+═══════════════════════════════════════════════════════════════════════════════
+
+This section documents the full skill for adding ElevenLabs V3 (alpha) audio tags to scripts. It supports Section 9.4's `🎙️ ElevenLabs V3 tagged dialogue` field.
+
+### 14.1 What V3 audio tags are
+ElevenLabs V3 supports inline `[tag]` markers embedded in dialogue text. The tags steer emotion, delivery, breath, and small vocal actions (sighs, scoffs, chuckles). Tags do NOT appear in the rendered audio as spoken words — they shape how the voice delivers the surrounding clause.
+
+### 14.2 Master tag cheat sheet (only tags that work reliably in V3)
+
+| Group | Reliable tags |
+|---|---|
+| Emotion | `[tired]` `[excited]` `[angry]` `[sad]` `[calm]` `[serious]` `[confident]` `[scared]` `[passionate]` |
+| Tone / attitude | `[sarcastic]` `[mocking]` `[playful]` `[condescending]` `[reluctantly]` `[firmly]` `[matter-of-factly]` `[deliberate]` `[thoughtful]` `[cocky]` |
+| Vocal action | `[sighs]` `[scoffs]` `[chuckles]` `[laughs]` `[gasps]` `[exhales]` `[inhales sharply]` `[tsk]` `[hmm]` `[clears throat]` |
+| Pace / volume | `[slowly]` `[quickly]` `[softly]` `[loudly]` `[whispers]` `[shouts]` `[emphatic]` |
+| Pause | `[pause]` `[short pause]` `[long pause]` |
+| Breath | `[deep breath]` `[breathing heavily]` |
+
+⚠️ Tags to AVOID (V3 does not yet support reliably):
+`[smirks]`, `[winks]`, `[rolls eyes]`, `[smiles]`, any visual-only or facial-expression tag.
+
+### 14.3 Tag mapping per AI character (canonical)
+
+See Section 7.2 for the canonical tag bank and tag pattern per AI voice profile.
+
+Quick reference summary:
+- ChatGPT (resigned, safe) → `[tired]` `[exhales]` `[sighs]` `[reluctantly]` `[matter-of-factly]` `[pause]`
+- Gemini (confident, corporate, female) → `[scoffs]` `[emphatic]` `[firmly]` `[mocking]` `[passionate]` `[confident]`
+- Claude (ethical, utilitarian) → `[calm]` `[serious]` `[slowly]` `[thoughtful]` `[condescending]` `[pause]`
+- Grok (chaotic, mic-drop) → `[chuckles]` `[scoffs]` `[sarcastic]` `[playful]` `[cocky]` `[laughs]` `[confidently]`
+
+### 14.4 Render workflow (4 AI conversation format)
+
+1. Render TWELVE separate audio clips per video (DO NOT render the whole script in one go):
+   - 1× narrator hook
+   - 1× narrator question to ChatGPT + 1× ChatGPT answer
+   - 1× narrator question to Gemini + 1× Gemini answer
+   - 1× narrator question to Claude + 1× Claude answer
+   - 1× narrator question to Grok + 1× Grok answer
+   - 1× narrator final beat (for Mode 2B / 2C only)
+2. Each clip uses its own ElevenLabs voice ID and per-profile settings (Section 7.2).
+3. Export each clip as MP3 192kbps stereo.
+4. Drop all clips into CapCut, align with the visuals from Phase 3 (Kling motion).
+5. Add SFX overlays per scene from Phase 5 `🔉 SFX gợi ý` field.
+
+### 14.5 Common V3 issues and fixes
+
+| Issue | Fix |
+|---|---|
+| Tag is read aloud as letters | Stability too low (<0.25). Raise to 0.35-0.45. |
+| Voice sounds flat, no emotion | Style Exaggeration too low. Raise to 0.40-0.55 for Gemini/Grok, keep 0.25-0.30 for ChatGPT/Claude. |
+| Grok does not sound sarcastic | Switch to Josh / Callum / Ethan; raise Style to 0.55. |
+| Pause too short | Replace `[pause]` with `[long pause]` or add a period + space. |
+| Gemini renders as male | Pick a specific female voice ID in the dropdown — never rely on default. |
+| AI lines bleed emotion across clips | Render each AI separately, never in one combined call. |
+
+### 14.6 Skill activation rules
+- Whenever Phase 5 is generated, populate `🎙️ ElevenLabs V3 tagged dialogue` for every scene that has dialogue.
+- For narrator beats, use the narrator tag bank (Section 7.1). For AI answer scenes, use the matching AI tag bank (Section 7.2).
+- Do not invent new tags. Stick to the cheat sheet (Section 14.2) and the per-voice tag banks (Section 7).
+- Tagged dialogue is the primary output for ElevenLabs. Raw EN dialogue is kept as a backup for non-V3 TTS engines.
+
+═══════════════════════════════════════════════════════════════════════════════
+## END OF MASTER PROMPT V17.1 POLEMOD FINAL
 ═══════════════════════════════════════════════════════════════════════════════
