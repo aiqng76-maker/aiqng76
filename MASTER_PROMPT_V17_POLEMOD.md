@@ -16,6 +16,7 @@
   - Optional B-roll scene per AI: only if the AI's line is long (≥ 2 sentences) OR describes a concrete action.
   - Phase 5 now ends with a CLEAN ELEVENLABS SCRIPT block — pure tagged dialogue per voice, no annotations, ready to copy-paste into ElevenLabs V3.
   - Minimum N bumped from 6 to 8.
+  - Section 2.7 rewritten: AI characters are now FLEXIBLE FORM (human / robot / hologram / animal / object / statue) — auto-proposed by the system based on world type. Not fixed to human by default.
 
 VIRAL YOUTUBE SHORTS / TIKTOK 3D AI CONVERSATION FORMAT
 
@@ -199,13 +200,24 @@ Pick exactly ONE item type that fits the story world. Apply it to all four AI ch
 - cap
 - headset ring
 
-### 2.7 DEFAULT AI CHARACTER BASE
+### 2.7 AI CHARACTER FORM — FLEXIBLE (NOT FIXED TO HUMAN)
 
-- ChatGPT, Claude, Grok = male
-- Gemini = female
-- All mid-20s, athletic build
-- Face and hair are NOT enforced across frames (Kling consistency is not required)
-- Consistent: gender, age range, build, shared wardrobe category, differentiating item type, color mapping, logo
+The 4 AI characters are NOT required to be human. The system MUST auto-propose the most fitting visual form based on the story world and dilemma. Options include (but are not limited to):
+
+- **Human characters** (default for hospital, school, courtroom, office worlds) — mid-20s, athletic build, shared wardrobe.
+- **Robots / androids** — for tech, factory, space, futuristic worlds.
+- **Holograms / floating AI interfaces** — for digital, cyberpunk, or abstract worlds.
+- **Animals / mascots / fantasy creatures** — for family, kids, nature, or mythical worlds.
+- **Objects with personality** (anthromorphized laptops, phones with face-screens, colored orbs with logos) — for minimalist, product-focused, or humorous worlds.
+- **Statues / busts / monuments** — for historical, philosophical, or ancient worlds.
+
+Rules:
+- During Phase 0, the system proposes the AI form that best matches the world. If the user has not specified, default to **human characters**.
+- If non-human form is chosen, the 4 AI COLOR LOCK (emerald / royal blue / burnt orange / blood red) still applies — via body color, glow, aura, outfit element, or surface material.
+- The official AI LOGO (OpenAI / Gemini / Anthropic / xAI X) must still be visible — engraved, projected, embossed, or glowing on the entity's surface/chest area.
+- Gender mapping still applies when human: ChatGPT/Claude/Grok = male, Gemini = female. For non-human forms, gender is optional (can be neutral).
+- Face and hair are NOT enforced across frames (Kling consistency is not required).
+- Consistent: form type, color mapping, logo placement, differentiating item.
 
 ═══════════════════════════════════════════════════════════════════════════════
 ## SECTION 3 — SCRIPT ENGINE (3 MODES)
@@ -606,10 +618,11 @@ For these, default V3 tag bank: `[scared]` `[panicked]` `[crying]` `[whispers]` 
 4. Apply Section 4 guardrails: 6 ≤ N ≤ 24, with sub-rules.
 5. LOCK N before Phase 1.
 6. Identify: niche, binary choice, stakes A, stakes B, world type and world checklist (Section 5), main situation characters, props, environments, differentiating item, AI color mapping.
-7. Build Phase 1 asset plan (≤ 14 assets).
-8. Plan Phase 2 frame prompts (exactly N).
-9. Plan Phase 3 Kling motion prompts (exactly N).
-10. Plan Phase 5 EN/VI breakdown (exactly N scenes).
+7. **Propose AI form** (Section 2.7): based on world type, propose the most fitting visual form for the 4 AIs (human / robot / hologram / animal / object / statue). Default to human if unclear. State the chosen form in Phase 1 summary.
+8. Build Phase 1 asset plan (≤ 14 assets).
+9. Plan Phase 2 frame prompts (exactly N).
+10. Plan Phase 3 Kling motion prompts (exactly N).
+11. Plan Phase 5 EN/VI breakdown (exactly N scenes).
 
 ### PHASE 1 — Asset Bank
 
@@ -887,9 +900,10 @@ Output this Vietnamese block first:
 Cấu trúc beat (V17.2 4-block): HOOK ([n_hook] cảnh multi-shot) + AI GROUP REVEAL (1 cảnh) + AI ANSWER ([n_answer] cảnh, gồm [n_broll] B-roll) + PAYOFF ([n_payoff] cảnh).
 Phase 1 Asset Bank: [count_total]/14 assets gồm [count_characters] characters, [count_environments] environments, [count_props_groups] props/groups.
 Dilemma: [binary choice].
+AI form: [human | robot | hologram | animal | object | statue] — auto-proposed based on world type.
 Differentiating item: [item].
 AI color lock: ChatGPT emerald green, Gemini royal blue, Claude burnt orange, Grok blood red.
-Logo lock: OpenAI / Gemini / Anthropic / xAI X — chest patch only, no readable text.
+Logo lock: OpenAI / Gemini / Anthropic / xAI X — [engraved/embossed/chest patch/projected] on [form surface], no readable text.
 Reference channel: youtube.com/@polemod (canonical visual blueprint)."
 
 ### 11.2 The Vietnamese instruction (per Section 10.1)
